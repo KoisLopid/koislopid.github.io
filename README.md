@@ -7,7 +7,6 @@
 </head>
 <body>
     <p>
-        To learn more, click 
         <a href="https://koislopid.github.io/gba/emulator.html" target="_blank">GameboyAdvance</a>
     </p>
 </body>
