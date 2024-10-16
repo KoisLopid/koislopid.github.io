@@ -8,7 +8,7 @@
 <body>
     <p>
         To learn more, click 
-        <a href="https://www.example.com" target="_blank">here</a> to visit the example page.
+        <a href="https://koislopid.github.io/gba/emulator.html" target="_blank">GameboyAdvance</a>
     </p>
 </body>
 </html>
