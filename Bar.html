@@ -117,6 +117,9 @@
                 return;
             }
 
+            // Ensure the URL starts with "https://"
+            input = ensureHTTPS(input);
+
             // Show loading message
             loadingMessage.style.display = 'block';
 
@@ -145,8 +148,21 @@
             errorMessage.textContent = message;
             errorMessage.style.display = 'block';
         }
+
+        // Function to ensure the URL starts with "https://"
+        function ensureHTTPS(url) {
+            // Trim any extra spaces
+            url = url.trim();
+
+            // Check if the URL starts with http:// or https://
+            if (!/^https?:\/\//i.test(url)) {
+                // If not, prepend https://
+                url = 'https://' + url;
+            }
+
+            return url;
+        }
     </script>
 
 </body>
 </html>
-
