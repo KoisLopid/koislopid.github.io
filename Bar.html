@@ -3,22 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Redirect Page</title>
+    <title>Simple Proxy/Search</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Simple Proxy or Google Search</h1>
+    <input type="text" id="urlInput" placeholder="Enter URL or search terms" />
+    <button onclick="handleInput()">Go</button>
+
+    <iframe id="resultFrame"></iframe>
+
     <script>
-        function redirect() {
-            const input = document.getElementById("pageName").value;
-            const baseUrl = "";
+        function handleInput() {
+            var input = document.getElementById('urlInput').value.trim();
+            var iframe = document.getElementById('resultFrame');
+
             if (input) {
-                // Redirect to the specified page
-                window.location.href = baseUrl + input;
+                // If the input starts with "http", treat it as a URL
+                if (input.startsWith("http://") || input.startsWith("https://")) {
+                    iframe.src = input;  // Show the website in an iframe
+                } else {
+                    // Otherwise, search the input on Google
+                    iframe.src = "https://www.google.com/search?q=" + encodeURIComponent(input);
+                }
+            } else {
+                alert("Please enter a valid URL or search term.");
             }
         }
     </script>
-</head>
-<body>
-    <h1>Search Bar</h1>
-    <p>Put the game name under</p>
-    <input type="text" id="pageName" placeholder="Enter page name" />
-    <button onclick="redirect()">Go</button>
+
 </body>
 </html>
